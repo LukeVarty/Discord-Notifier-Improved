@@ -12,4 +12,4 @@ In order to use this plugin you will need to create a webhook on your discord se
 
 ## Contribution
 
-Initially forked from: https://github.com/ATremonte/Discord-Level-Notifications
+Initially forked from: https://https://github.com/cepawiel/RuneLite-Discord-Notifications
