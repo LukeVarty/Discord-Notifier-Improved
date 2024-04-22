@@ -450,11 +450,22 @@ public interface DiscordNotificationsConfig extends Config {
 	}
 
 	@ConfigItem(
+		keyName = "useWebhookOneForScroll",
+		name = "Use Webhook One For Clue Scrolls",
+		description = "Select if you would like to use this webhook for clue scroll notifications",
+		section = webhookOneConfig,
+		position = 7
+	)
+	default boolean useWebhookOneForScroll() {
+		return false;
+	}
+
+	@ConfigItem(
 		keyName = "useWebhookOneForCA",
 		name = "Use Webhook One For Combat Achievements",
 		description = "Select if you would like to use this webhook for combat achievement notifications",
 		section = webhookOneConfig,
-		position = 7
+		position = 8
 	)
 	default boolean useWebhookOneForCA() {
 		return false;
@@ -471,7 +482,7 @@ public interface DiscordNotificationsConfig extends Config {
 
 	@ConfigItem(
 		keyName = "useWebhookTwo",
-		name = "Use Webhook One",
+		name = "Use Webhook Two",
 		description = "Select if you would like to use this webhook",
 		section = webhookTwoConfig,
 		position = 1
@@ -482,8 +493,8 @@ public interface DiscordNotificationsConfig extends Config {
 
 	@ConfigItem(
 		keyName = "webhookTwoString",
-		name = "Webhook One URL",
-		description = "Webhook One URL to send messages to.",
+		name = "Webhook Two URL",
+		description = "Webhook Two URL to send messages to.",
 		section = webhookTwoConfig,
 		position = 2
 	)
@@ -491,7 +502,7 @@ public interface DiscordNotificationsConfig extends Config {
 
 	@ConfigItem(
 		keyName = "useWebhookTwoForDeath",
-		name = "Use Webhook One For Deaths",
+		name = "Use Webhook Two For Deaths",
 		description = "Select if you would like to use this webhook for death notifications",
 		section = webhookTwoConfig,
 		position = 3
@@ -502,7 +513,7 @@ public interface DiscordNotificationsConfig extends Config {
 	
 	@ConfigItem(
 		keyName = "useWebhookTwoForLevel",
-		name = "Use Webhook One For Levels",
+		name = "Use Webhook Two For Levels",
 		description = "Select if you would like to use this webhook for level notifications",
 		section = webhookTwoConfig,
 		position = 4
@@ -513,7 +524,7 @@ public interface DiscordNotificationsConfig extends Config {
 
 	@ConfigItem(
 		keyName = "useWebhookTwoForQuest",
-		name = "Use Webhook One For Quests",
+		name = "Use Webhook Two For Quests",
 		description = "Select if you would like to use this webhook for quest notifications",
 		section = webhookTwoConfig,
 		position = 4
@@ -524,7 +535,7 @@ public interface DiscordNotificationsConfig extends Config {
 
 	@ConfigItem(
 		keyName = "useWebhookTwoForClog",
-		name = "Use Webhook One For Collection Logs",
+		name = "Use Webhook Two For Collection Logs",
 		description = "Select if you would like to use this webhook for collection log notifications",
 		section = webhookTwoConfig,
 		position = 5
@@ -535,7 +546,7 @@ public interface DiscordNotificationsConfig extends Config {
 
 	@ConfigItem(
 		keyName = "useWebhookTwoForPets",
-		name = "Use Webhook One For Pets",
+		name = "Use Webhook Two For Pets",
 		description = "Select if you would like to use this webhook for pet notifications",
 		section = webhookTwoConfig,
 		position = 6
@@ -545,13 +556,554 @@ public interface DiscordNotificationsConfig extends Config {
 	}
 
 	@ConfigItem(
-		keyName = "useWebhookTwoForCA",
-		name = "Use Webhook One For Combat Achievements",
-		description = "Select if you would like to use this webhook for combat achievement notifications",
+		keyName = "useWebhookTwoForScroll",
+		name = "Use Webhook Two For Clue Scrolls",
+		description = "Select if you would like to use this webhook for clue scroll notifications",
 		section = webhookTwoConfig,
 		position = 7
 	)
+	default boolean useWebhookTwoForScroll() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookTwoForCA",
+		name = "Use Webhook Two For Combat Achievements",
+		description = "Select if you would like to use this webhook for combat achievement notifications",
+		section = webhookTwoConfig,
+		position = 8
+	)
 	default boolean useWebhookTwoForCA() {
+		return false;
+	}
+
+	// Webhook 3 config section
+	@ConfigSection(
+		name = "Webhook 3 Settings",
+		description = "The config for webhook 3 content notifications",
+		position = 0,
+		closedByDefault = true
+	)
+	String webhookThreeConfig = "webhookThreeConfig";
+
+	@ConfigItem(
+		keyName = "useWebhookThree",
+		name = "Use Webhook Three",
+		description = "Select if you would like to use this webhook",
+		section = webhookThreeConfig,
+		position = 1
+	)
+	default boolean useWebhookThree() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "webhookThreeString",
+		name = "Webhook Three URL",
+		description = "Webhook Three URL to send messages to.",
+		section = webhookThreeConfig,
+		position = 2
+	)
+	String webhookThree();
+
+	@ConfigItem(
+		keyName = "useWebhookThreeForDeath",
+		name = "Use Webhook Three For Deaths",
+		description = "Select if you would like to use this webhook for death notifications",
+		section = webhookThreeConfig,
+		position = 3
+	)
+	default boolean useWebhookThreeForDeath() {
+		return false;
+	}	
+	
+	@ConfigItem(
+		keyName = "useWebhookThreeForLevel",
+		name = "Use Webhook Three For Levels",
+		description = "Select if you would like to use this webhook for level notifications",
+		section = webhookThreeConfig,
+		position = 4
+	)
+	default boolean useWebhookThreeForLevel() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookThreeForQuest",
+		name = "Use Webhook Three For Quests",
+		description = "Select if you would like to use this webhook for quest notifications",
+		section = webhookThreeConfig,
+		position = 4
+	)
+	default boolean useWebhookThreeForQuest() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookThreeForClog",
+		name = "Use Webhook Three For Collection Logs",
+		description = "Select if you would like to use this webhook for collection log notifications",
+		section = webhookThreeConfig,
+		position = 5
+	)
+	default boolean useWebhookThreeForClog() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookThreeForPets",
+		name = "Use Webhook Three For Pets",
+		description = "Select if you would like to use this webhook for pet notifications",
+		section = webhookThreeConfig,
+		position = 6
+	)
+	default boolean useWebhookThreeForPets() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookThreeForScroll",
+		name = "Use Webhook Three For Clue Scrolls",
+		description = "Select if you would like to use this webhook for clue scroll notifications",
+		section = webhookThreeConfig,
+		position = 7
+	)
+	default boolean useWebhookThreeForScroll() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookThreeForCA",
+		name = "Use Webhook Three For Combat Achievements",
+		description = "Select if you would like to use this webhook for combat achievement notifications",
+		section = webhookThreeConfig,
+		position = 8
+	)
+	default boolean useWebhookThreeForCA() {
+		return false;
+	}
+
+	// Webhook 4 config section
+	@ConfigSection(
+		name = "Webhook 4 Settings",
+		description = "The config for webhook 4 content notifications",
+		position = 0,
+		closedByDefault = true
+	)
+	String webhookFourConfig = "webhookFourConfig";
+
+	@ConfigItem(
+		keyName = "useWebhookFour",
+		name = "Use Webhook Four",
+		description = "Select if you would like to use this webhook",
+		section = webhookFourConfig,
+		position = 1
+	)
+	default boolean useWebhookFour() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "webhookFourString",
+		name = "Webhook Four URL",
+		description = "Webhook Four URL to send messages to.",
+		section = webhookFourConfig,
+		position = 2
+	)
+	String webhookFour();
+
+	@ConfigItem(
+		keyName = "useWebhookFourForDeath",
+		name = "Use Webhook Four For Deaths",
+		description = "Select if you would like to use this webhook for death notifications",
+		section = webhookFourConfig,
+		position = 3
+	)
+	default boolean useWebhookFourForDeath() {
+		return false;
+	}	
+	
+	@ConfigItem(
+		keyName = "useWebhookFourForLevel",
+		name = "Use Webhook Four For Levels",
+		description = "Select if you would like to use this webhook for level notifications",
+		section = webhookFourConfig,
+		position = 4
+	)
+	default boolean useWebhookFourForLevel() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookFourForQuest",
+		name = "Use Webhook Four For Quests",
+		description = "Select if you would like to use this webhook for quest notifications",
+		section = webhookFourConfig,
+		position = 4
+	)
+	default boolean useWebhookFourForQuest() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookFourForClog",
+		name = "Use Webhook Four For Collection Logs",
+		description = "Select if you would like to use this webhook for collection log notifications",
+		section = webhookFourConfig,
+		position = 5
+	)
+	default boolean useWebhookFourForClog() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookFourForPets",
+		name = "Use Webhook Four For Pets",
+		description = "Select if you would like to use this webhook for pet notifications",
+		section = webhookFourConfig,
+		position = 6
+	)
+	default boolean useWebhookFourForPets() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookFourForScroll",
+		name = "Use Webhook Four For Clue Scrolls",
+		description = "Select if you would like to use this webhook for clue scroll notifications",
+		section = webhookFourConfig,
+		position = 7
+	)
+	default boolean useWebhookFourForScroll() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookFourForCA",
+		name = "Use Webhook Four For Combat Achievements",
+		description = "Select if you would like to use this webhook for combat achievement notifications",
+		section = webhookFourConfig,
+		position = 8
+	)
+	default boolean useWebhookFourForCA() {
+		return false;
+	}
+
+	// Webhook 5 config section
+	@ConfigSection(
+		name = "Webhook 5 Settings",
+		description = "The config for webhook 5 content notifications",
+		position = 0,
+		closedByDefault = true
+	)
+	String webhookFiveConfig = "webhookFiveConfig";
+
+	@ConfigItem(
+		keyName = "useWebhookFive",
+		name = "Use Webhook Five",
+		description = "Select if you would like to use this webhook",
+		section = webhookFiveConfig,
+		position = 1
+	)
+	default boolean useWebhookFive() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "webhookFiveString",
+		name = "Webhook Five URL",
+		description = "Webhook Five URL to send messages to.",
+		section = webhookFiveConfig,
+		position = 2
+	)
+	String webhookFive();
+
+	@ConfigItem(
+		keyName = "useWebhookFiveForDeath",
+		name = "Use Webhook Five For Deaths",
+		description = "Select if you would like to use this webhook for death notifications",
+		section = webhookFiveConfig,
+		position = 3
+	)
+	default boolean useWebhookFiveForDeath() {
+		return false;
+	}	
+	
+	@ConfigItem(
+		keyName = "useWebhookFiveForLevel",
+		name = "Use Webhook Five For Levels",
+		description = "Select if you would like to use this webhook for level notifications",
+		section = webhookFiveConfig,
+		position = 4
+	)
+	default boolean useWebhookFiveForLevel() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookFiveForQuest",
+		name = "Use Webhook Five For Quests",
+		description = "Select if you would like to use this webhook for quest notifications",
+		section = webhookFiveConfig,
+		position = 4
+	)
+	default boolean useWebhookFiveForQuest() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookFiveForClog",
+		name = "Use Webhook Five For Collection Logs",
+		description = "Select if you would like to use this webhook for collection log notifications",
+		section = webhookFiveConfig,
+		position = 5
+	)
+	default boolean useWebhookFiveForClog() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookFiveForPets",
+		name = "Use Webhook Five For Pets",
+		description = "Select if you would like to use this webhook for pet notifications",
+		section = webhookFiveConfig,
+		position = 6
+	)
+	default boolean useWebhookFiveForPets() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookFiveForScroll",
+		name = "Use Webhook Five For Clue Scrolls",
+		description = "Select if you would like to use this webhook for clue scroll notifications",
+		section = webhookFiveConfig,
+		position = 7
+	)
+	default boolean useWebhookFiveForScroll() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookFiveForCA",
+		name = "Use Webhook Five For Combat Achievements",
+		description = "Select if you would like to use this webhook for combat achievement notifications",
+		section = webhookFiveConfig,
+		position = 8
+	)
+	default boolean useWebhookFiveForCA() {
+		return false;
+	}
+
+	// Webhook 6 config section
+	@ConfigSection(
+		name = "Webhook 6 Settings",
+		description = "The config for webhook 6 content notifications",
+		position = 0,
+		closedByDefault = true
+	)
+	String webhookSixConfig = "webhookSixConfig";
+
+	@ConfigItem(
+		keyName = "useWebhookSix",
+		name = "Use Webhook Six",
+		description = "Select if you would like to use this webhook",
+		section = webhookSixConfig,
+		position = 1
+	)
+	default boolean useWebhookSix() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "webhookSixString",
+		name = "Webhook Six URL",
+		description = "Webhook Six URL to send messages to.",
+		section = webhookSixConfig,
+		position = 2
+	)
+	String webhookSix();
+
+	@ConfigItem(
+		keyName = "useWebhookSixForDeath",
+		name = "Use Webhook Six For Deaths",
+		description = "Select if you would like to use this webhook for death notifications",
+		section = webhookSixConfig,
+		position = 3
+	)
+	default boolean useWebhookSixForDeath() {
+		return false;
+	}	
+	
+	@ConfigItem(
+		keyName = "useWebhookSixForLevel",
+		name = "Use Webhook Six For Levels",
+		description = "Select if you would like to use this webhook for level notifications",
+		section = webhookSixConfig,
+		position = 4
+	)
+	default boolean useWebhookSixForLevel() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookSixForQuest",
+		name = "Use Webhook Six For Quests",
+		description = "Select if you would like to use this webhook for quest notifications",
+		section = webhookSixConfig,
+		position = 4
+	)
+	default boolean useWebhookSixForQuest() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookSixForClog",
+		name = "Use Webhook Six For Collection Logs",
+		description = "Select if you would like to use this webhook for collection log notifications",
+		section = webhookSixConfig,
+		position = 5
+	)
+	default boolean useWebhookSixForClog() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookSixForPets",
+		name = "Use Webhook Six For Pets",
+		description = "Select if you would like to use this webhook for pet notifications",
+		section = webhookSixConfig,
+		position = 6
+	)
+	default boolean useWebhookSixForPets() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookSixForScroll",
+		name = "Use Webhook Six For Clue Scrolls",
+		description = "Select if you would like to use this webhook for clue scroll notifications",
+		section = webhookSixConfig,
+		position = 7
+	)
+	default boolean useWebhookSixForScroll() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookSixForCA",
+		name = "Use Webhook Six For Combat Achievements",
+		description = "Select if you would like to use this webhook for combat achievement notifications",
+		section = webhookSixConfig,
+		position = 8
+	)
+	default boolean useWebhookSixForCA() {
+		return false;
+	}
+
+	// Webhook 7 config section
+	@ConfigSection(
+		name = "Webhook 7 Settings",
+		description = "The config for webhook 7 content notifications",
+		position = 0,
+		closedByDefault = true
+	)
+	String webhookSevenConfig = "webhookSevenConfig";
+
+	@ConfigItem(
+		keyName = "useWebhookSeven",
+		name = "Use Webhook Seven",
+		description = "Select if you would like to use this webhook",
+		section = webhookSevenConfig,
+		position = 1
+	)
+	default boolean useWebhookSeven() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "webhookSevenString",
+		name = "Webhook Seven URL",
+		description = "Webhook Seven URL to send messages to.",
+		section = webhookSevenConfig,
+		position = 2
+	)
+	String webhookSeven();
+
+	@ConfigItem(
+		keyName = "useWebhookSevenForDeath",
+		name = "Use Webhook Seven For Deaths",
+		description = "Select if you would like to use this webhook for death notifications",
+		section = webhookSevenConfig,
+		position = 3
+	)
+	default boolean useWebhookSevenForDeath() {
+		return false;
+	}	
+	
+	@ConfigItem(
+		keyName = "useWebhookSevenForLevel",
+		name = "Use Webhook Seven For Levels",
+		description = "Select if you would like to use this webhook for level notifications",
+		section = webhookSevenConfig,
+		position = 4
+	)
+	default boolean useWebhookSevenForLevel() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookSevenForQuest",
+		name = "Use Webhook Seven For Quests",
+		description = "Select if you would like to use this webhook for quest notifications",
+		section = webhookSevenConfig,
+		position = 4
+	)
+	default boolean useWebhookSevenForQuest() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookSevenForClog",
+		name = "Use Webhook Seven For Collection Logs",
+		description = "Select if you would like to use this webhook for collection log notifications",
+		section = webhookSevenConfig,
+		position = 5
+	)
+	default boolean useWebhookSevenForClog() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookSevenForPets",
+		name = "Use Webhook Seven For Pets",
+		description = "Select if you would like to use this webhook for pet notifications",
+		section = webhookSevenConfig,
+		position = 6
+	)
+	default boolean useWebhookSevenForPets() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookSevenForScroll",
+		name = "Use Webhook Seven For Clue Scrolls",
+		description = "Select if you would like to use this webhook for clue scroll notifications",
+		section = webhookSevenConfig,
+		position = 7
+	)
+	default boolean useWebhookSevenForScroll() {
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "useWebhookSevenForCA",
+		name = "Use Webhook Seven For Combat Achievements",
+		description = "Select if you would like to use this webhook for combat achievement notifications",
+		section = webhookSevenConfig,
+		position = 8
+	)
+	default boolean useWebhookSevenForCA() {
 		return false;
 	}
 }

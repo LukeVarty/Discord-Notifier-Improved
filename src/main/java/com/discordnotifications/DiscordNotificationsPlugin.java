@@ -405,27 +405,223 @@ public class DiscordNotificationsPlugin extends Plugin
 			switch (notifcationType) 
 			{
 				case "death":
-					if (config.useWebhookOneForDeath) {
-						sendNotification = true;
-					}
+					if (config.useWebhookOneForDeath) { sendNotification = true; }
 					break;
 				case "pet":
-					if (config.useWebhookOneForPets) {
-						sendNotification = true;
-					}
+					if (config.useWebhookOneForPets) { sendNotification = true;	}
 					break;
+				case "level":
+					if (config.useWebhookOneForLevel) {	sendNotification = true; }
+					break;
+				case "quest":
+					if (config.useWebhookOneForQuest) {	sendNotification = true; }
+					break;
+				case "clog":
+					if (config.useWebhookOneForClog) { sendNotification = true;	}
+					break;
+				case "ca":
+					if (config.useWebhookOneForCA) { sendNotification = true; }
+					break;
+				case "scroll":
+					if (config.useWebhookOneForScroll) { sendNotification = true; }
 				default:
 					break;
 			}
 			
 			if (sendNotification) { configUrl = config.webhookOneString; }
 		}
-
+		
 		//Webhook Two
-		//if (config.useMultipleWebhooks && config.useWebhookTwo)
-		//{
+		if (config.useMultipleWebhooks && config.useWebhookTwo)
+		{
+			switch (notifcationType) 
+			{
+				case "death":
+					if (config.useWebhookTwoForDeath) { sendNotification = true; }
+					break;
+				case "pet":
+					if (config.useWebhookTwoForPets) { sendNotification = true;	}
+					break;
+				case "level":
+					if (config.useWebhookTwoForLevel) {	sendNotification = true; }
+					break;
+				case "quest":
+					if (config.useWebhookTwoForQuest) {	sendNotification = true; }
+					break;
+				case "clog":
+					if (config.useWebhookTwoForClog) { sendNotification = true;	}
+					break;
+				case "ca":
+					if (config.useWebhookTwoForCA) { sendNotification = true; }
+					break;
+				case "scroll":
+					if (config.useWebhookTwoForScroll) { sendNotification = true; }
+				default:
+					break;
+			}
+			
+			if (sendNotification && Strings.isNullOrEmpty(configUrl)) { configUrl = config.webhookTwoString; } else if (sendNotification) { configUrl = configUrl + "\n" + config.webhookTwoString; }
+		}
 
-		//}
+		//Webhook Three
+		if (config.useMultipleWebhooks && config.useWebhookThree)
+		{
+			switch (notifcationType) 
+			{
+				case "death":
+					if (config.useWebhookThreeForDeath) { sendNotification = true; }
+					break;
+				case "pet":
+					if (config.useWebhookThreeForPets) { sendNotification = true;	}
+					break;
+				case "level":
+					if (config.useWebhookThreeForLevel) {	sendNotification = true; }
+					break;
+				case "quest":
+					if (config.useWebhookThreeForQuest) {	sendNotification = true; }
+					break;
+				case "clog":
+					if (config.useWebhookThreeForClog) { sendNotification = true;	}
+					break;
+				case "ca":
+					if (config.useWebhookThreeForCA) { sendNotification = true; }
+					break;
+				case "scroll":
+					if (config.useWebhookThreeForScroll) { sendNotification = true; }
+				default:
+					break;
+			}
+			
+			if (sendNotification && Strings.isNullOrEmpty(configUrl)) { configUrl = config.webhookThreeString; } else if (sendNotification) { configUrl = configUrl + "\n" + config.webhookThreeString; }
+		}
+		
+		//Webhook Four
+		if (config.useMultipleWebhooks && config.useWebhookFour)
+		{
+			switch (notifcationType) 
+			{
+				case "death":
+					if (config.useWebhookFourForDeath) { sendNotification = true; }
+					break;
+				case "pet":
+					if (config.useWebhookFourForPets) { sendNotification = true;	}
+					break;
+				case "level":
+					if (config.useWebhookFourForLevel) {	sendNotification = true; }
+					break;
+				case "quest":
+					if (config.useWebhookFourForQuest) {	sendNotification = true; }
+					break;
+				case "clog":
+					if (config.useWebhookFourForClog) { sendNotification = true;	}
+					break;
+				case "ca":
+					if (config.useWebhookFourForCA) { sendNotification = true; }
+					break;
+				case "scroll":
+					if (config.useWebhookFourForScroll) { sendNotification = true; }
+				default:
+					break;
+			}
+			
+			if (sendNotification && Strings.isNullOrEmpty(configUrl)) { configUrl = config.webhookFourString; } else if (sendNotification) { configUrl = configUrl + "\n" + config.webhookFourString; }
+		}
+
+		//Webhook Five
+		if (config.useMultipleWebhooks && config.useWebhookFive)
+		{
+			switch (notifcationType) 
+			{
+				case "death":
+					if (config.useWebhookFiveForDeath) { sendNotification = true; }
+					break;
+				case "pet":
+					if (config.useWebhookFiveForPets) { sendNotification = true;	}
+					break;
+				case "level":
+					if (config.useWebhookFiveForLevel) {	sendNotification = true; }
+					break;
+				case "quest":
+					if (config.useWebhookFiveForQuest) {	sendNotification = true; }
+					break;
+				case "clog":
+					if (config.useWebhookFiveForClog) { sendNotification = true;	}
+					break;
+				case "ca":
+					if (config.useWebhookFiveForCA) { sendNotification = true; }
+					break;
+				case "scroll":
+					if (config.useWebhookFiveForScroll) { sendNotification = true; }
+				default:
+					break;
+			}
+			
+			if (sendNotification && Strings.isNullOrEmpty(configUrl)) { configUrl = config.webhookFiveString; } else if (sendNotification) { configUrl = configUrl + "\n" + config.webhookFiveString; }
+		}
+
+		//Webhook Six
+		if (config.useMultipleWebhooks && config.useWebhookSix)
+		{
+			switch (notifcationType) 
+			{
+				case "death":
+					if (config.useWebhookSixForDeath) { sendNotification = true; }
+					break;
+				case "pet":
+					if (config.useWebhookSixForPets) { sendNotification = true;	}
+					break;
+				case "level":
+					if (config.useWebhookSixForLevel) {	sendNotification = true; }
+					break;
+				case "quest":
+					if (config.useWebhookSixForQuest) {	sendNotification = true; }
+					break;
+				case "clog":
+					if (config.useWebhookSixForClog) { sendNotification = true;	}
+					break;
+				case "ca":
+					if (config.useWebhookSixForCA) { sendNotification = true; }
+					break;
+				case "scroll":
+					if (config.useWebhookSixForScroll) { sendNotification = true; }
+				default:
+					break;
+			}
+			
+			if (sendNotification && Strings.isNullOrEmpty(configUrl)) { configUrl = config.webhookSixString; } else if (sendNotification) { configUrl = configUrl + "\n" + config.webhookSixString; }
+		}
+
+		//Webhook Seven
+		if (config.useMultipleWebhooks && config.useWebhookSeven)
+		{
+			switch (notifcationType) 
+			{
+				case "death":
+					if (config.useWebhookSevenForDeath) { sendNotification = true; }
+					break;
+				case "pet":
+					if (config.useWebhookSevenForPets) { sendNotification = true; }
+					break;
+				case "level":
+					if (config.useWebhookSevenForLevel) { sendNotification = true; }
+					break;
+				case "quest":
+					if (config.useWebhookSevenForQuest) { sendNotification = true; }
+					break;
+				case "clog":
+					if (config.useWebhookSevenForClog) { sendNotification = true;	}
+					break;
+				case "ca":
+					if (config.useWebhookSevenForCA) { sendNotification = true; }
+					break;
+				case "scroll":
+					if (config.useWebhookSevenForScroll) { sendNotification = true; }
+				default:
+					break;
+			}
+			
+			if (sendNotification && Strings.isNullOrEmpty(configUrl)) { configUrl = config.webhookSevenString; } else if (sendNotification) { configUrl = configUrl + "\n" + config.webhookSevenString; }
+		}
 
 		if (Strings.isNullOrEmpty(configUrl)) { config.webhook }
 		if (Strings.isNullOrEmpty(configUrl)) { return; }
