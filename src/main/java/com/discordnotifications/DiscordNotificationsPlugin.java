@@ -20,6 +20,8 @@ import okhttp3.*;
 
 import javax.imageio.ImageIO;
 import javax.inject.Inject;
+import javax.security.auth.callback.Callback;
+
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -334,7 +336,7 @@ public class DiscordNotificationsPlugin extends Plugin
 
 		DiscordWebhookBody discordWebhookBody = new DiscordWebhookBody();
 		discordWebhookBody.setContent(deathMessageString);
-		sendWebhook(discordWebhookBody, config.sendDeathScreenshot());
+		sendWebhook(discordWebhookBody, config.sendDeathScreenshot(), "death");
 	}
 
 	private void sendClueMessage()
@@ -389,12 +391,43 @@ public class DiscordNotificationsPlugin extends Plugin
 
 		DiscordWebhookBody discordWebhookBody = new DiscordWebhookBody();
 		discordWebhookBody.setContent(petMessageString);
-		sendWebhook(discordWebhookBody, config.sendPetScreenshot());
+		sendWebhook(discordWebhookBody, config.sendPetScreenshot(), "pet");
 	}
 
-	private void sendWebhook(DiscordWebhookBody discordWebhookBody, boolean sendScreenshot)
+	private void sendWebhook(DiscordWebhookBody discordWebhookBody, boolean sendScreenshot, String notifcationType)
 	{
-		String configUrl = config.webhook();
+		boolean sendNotification = false;
+		String configUrl = "";
+
+		//Webhook One
+		if (config.useMultipleWebhooks && config.useWebhookOne)
+		{
+			switch (notifcationType) 
+			{
+				case "death":
+					if (config.useWebhookOneForDeath) {
+						sendNotification = true;
+					}
+					break;
+				case "pet":
+					if (config.useWebhookOneForPets) {
+						sendNotification = true;
+					}
+					break;
+				default:
+					break;
+			}
+			
+			if (sendNotification) { configUrl = config.webhookOneString; }
+		}
+
+		//Webhook Two
+		//if (config.useMultipleWebhooks && config.useWebhookTwo)
+		//{
+
+		//}
+
+		if (Strings.isNullOrEmpty(configUrl)) { config.webhook }
 		if (Strings.isNullOrEmpty(configUrl)) { return; }
 
 		List<String> webhookUrls =

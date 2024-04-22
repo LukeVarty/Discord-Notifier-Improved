@@ -26,6 +26,17 @@ public interface DiscordNotificationsConfig extends Config {
 	)
 	String webhook();
 
+	@ConfigItem(
+		keyName = "useMultipleWebhooks",
+		name = "Would you like to use multiple webhooks?",
+		description = "Select if you would like to use multiple webhooks for different purposes.",
+		section = webhookConfig,
+		position = 1
+	)
+	default boolean useMultipleWebhooks() {
+		return false;
+	}
+
 	// Levelling config section
 	@ConfigSection(
 			name = "Levelling",
@@ -459,13 +470,13 @@ public interface DiscordNotificationsConfig extends Config {
 	String webhookTwoConfig = "webhookTwoConfig";
 
 	@ConfigItem(
-		keyName = "usewebhookTwo",
+		keyName = "useWebhookTwo",
 		name = "Use Webhook One",
 		description = "Select if you would like to use this webhook",
 		section = webhookTwoConfig,
 		position = 1
 	)
-	default boolean usewebhookTwo() {
+	default boolean useWebhookTwo() {
 		return false;
 	}
 
